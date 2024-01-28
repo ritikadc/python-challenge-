@@ -1,5 +1,4 @@
-# python-challenge-
-Assignment 3 
+Project completed with Brennan Bradley.
 # python-challenge
 
 # Before You Begin
