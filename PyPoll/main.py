@@ -1,7 +1,13 @@
 import os
 import csv
+
+
 csvpath = os.path.join("Resources","election_data.csv")
+writtencsvpath = os.path.join("analysis", "results.csv")
+
+
 print("Election Results \n-------------------------")
+    
 with open(csvpath, encoding='UTF-8') as csvfile:
      csvreader = csv.reader(csvfile, delimiter=',')
      next(csvreader)
@@ -30,13 +36,28 @@ with open(csvpath, encoding='UTF-8') as csvfile:
              winner = 'Diana DeGette'
          if totalvotes3 > totalvotes1 and totalvotes2:
              winner = 'Raymon Anthony Doane'
-    print(f"Total Votes: {votes}")
-    print(f"-------------------------")
-    print(f"{charles}: %{percentByCharles:.3f} ({totalvotes1})")
-    print(f"{diana}: %{percentByDiana:.3f} ({totalvotes2})")
-    print(f"{raymon}: %{percentByRaymon:.3f} ({totalvotes3})")
-    print(f"-------------------------")
-    print(f"Winner: {winner}")
-    print(f"-------------------------")
-beginningRows()
-getAnalysis()
+     
+line0 = ("Election Results")
+line1 = ("-------------------------")
+line8 = (f"Total Votes: {votes}")
+line9 = ("-------------------------")
+line2 = (f"{charles}: %{percentByCharles:.3f} ({totalvotes1})")
+line3 = (f"{diana}: %{percentByDiana:.3f} ({totalvotes2})")
+line4 = (f"{raymon}: %{percentByRaymon:.3f} ({totalvotes3})")
+line5 = ("-------------------------")
+line6 = (f"Winner: {winner}")
+line7 = ("-------------------------")
+
+
+print(f"Total Votes: {votes}")
+print("-------------------------")
+print(f"{charles}: %{percentByCharles:.3f} ({totalvotes1})")
+print(f"{diana}: %{percentByDiana:.3f} ({totalvotes2})")
+print(f"{raymon}: %{percentByRaymon:.3f} ({totalvotes3})")
+print("-------------------------")
+print(f"Winner: {winner}")
+print("-------------------------")
+
+with open(writtencsvpath, 'w') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=",")
+    csvwriter.writerow([f"{line0} \n{line1} \n{line8} \n{line9} \n{line2} \n{line3} \n{line4} \n{line5} \n{line6} \n{line7}"])
